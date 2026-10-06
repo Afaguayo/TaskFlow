@@ -70,9 +70,9 @@ const BACKLOG: readonly SeedTask[] = [
     status: "todo",
   },
   {
-    title: "Run tests in CI where tests already exist",
+    title: "Add CI to repos that have none",
     description:
-      "PA2-Decision-Makiong, TICKETMINER, AI-chess, Shell and Archiver have tests but no GitHub Actions workflow. Add one per repo so a green badge backs them up.",
+      "AI-chess (unittest, 40 tests), Shell (POSIX syscalls, so Linux + macOS runners), Archiver (tar round-trip script), brochacho (PSScriptAnalyzer + shellcheck), hackathon (lint + build; Vercel already deploys). TICKETMINER needs Maven or Gradle first.",
     priority: "medium",
     status: "todo",
   },
@@ -111,12 +111,6 @@ const BACKLOG: readonly SeedTask[] = [
   {
     title: "brochacho: lint scripts in CI",
     description: "No tests or CI yet. Run PSScriptAnalyzer and shellcheck on push; add Pester tests for the wake tools.",
-    priority: "low",
-    status: "todo",
-  },
-  {
-    title: "AudioSentinel: publish a release build",
-    description: "CI builds it but there's no Release to download. Attach the .exe on tag pushes and add a screenshot.",
     priority: "low",
     status: "todo",
   },
