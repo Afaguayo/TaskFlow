@@ -11,9 +11,14 @@ import { BoardView } from "./ui/BoardView";
  * Composition root: the one place that picks concrete implementations and
  * wires them together. Everything else depends on interfaces.
  */
+
+// v2: the Review column and the repo backlog seed. A new key gives every
+// visitor the new demo board instead of a stale one.
+const STORAGE_KEY = "taskflow.board.v2";
+
 function createRepository(): { repository: TaskRepository; isFirstVisit: boolean } {
   try {
-    const repository = new LocalStorageTaskRepository(window.localStorage, "taskflow.board", (error) =>
+    const repository = new LocalStorageTaskRepository(window.localStorage, STORAGE_KEY, (error) =>
       console.warn("TaskFlow: skipped an unreadable saved task", error),
     );
     return { repository, isFirstVisit: repository.isEmpty };

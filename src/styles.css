@@ -12,6 +12,7 @@
   --low: #2563eb;
   --todo: #a1a1aa;
   --progress: #d97706;
+  --review: #7c3aed;
   --done: #16a34a;
   --radius: 10px;
   color-scheme: light dark;
@@ -156,7 +157,8 @@ select:focus-visible,
 
 .board {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  /* As many columns as the workflow has statuses; wraps on narrow screens. */
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 16px;
   align-items: start;
 }
@@ -173,6 +175,10 @@ select:focus-visible,
 
 .column-in_progress {
   border-top-color: var(--progress);
+}
+
+.column-review {
+  border-top-color: var(--review);
 }
 
 .column-done {

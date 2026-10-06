@@ -2,7 +2,7 @@
   "name": "taskflow",
   "version": "1.0.0",
   "private": true,
-  "description": "A To Do / In Progress / Done task board built to showcase software engineering principles.",
+  "description": "A To Do / In Progress / Review / Done task board built to showcase software engineering principles.",
   "type": "module",
   "scripts": {
     "dev": "vite",

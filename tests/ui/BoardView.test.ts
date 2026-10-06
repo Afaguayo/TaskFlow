@@ -22,11 +22,12 @@ function addTask(root: HTMLElement, title: string): void {
 }
 
 describe("BoardView", () => {
-  it("renders the three columns", () => {
+  it("renders a column per status", () => {
     const { root } = setup();
     expect([...root.querySelectorAll("h2")].map((el) => el.firstChild?.textContent)).toEqual([
       "To Do",
       "In Progress",
+      "Review",
       "Done",
     ]);
   });
@@ -51,10 +52,12 @@ describe("BoardView", () => {
     click(root, "forward");
     expect(titlesIn(root, "in_progress")).toEqual(["Card"]);
     click(root, "forward");
+    expect(titlesIn(root, "review")).toEqual(["Card"]);
+    click(root, "forward");
     expect(titlesIn(root, "done")).toEqual(["Card"]);
     expect(root.querySelector<HTMLButtonElement>('[data-action="forward"]')?.disabled).toBe(true);
     click(root, "back");
-    expect(titlesIn(root, "in_progress")).toEqual(["Card"]);
+    expect(titlesIn(root, "review")).toEqual(["Card"]);
   });
 
   it("edits a card inline", () => {

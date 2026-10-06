@@ -1,6 +1,6 @@
 # TaskFlow
 
-A **To Do / In Progress / Done** task board, written to show software engineering principles in a small, readable codebase.
+A **To Do / In Progress / Review / Done** task board, written to show software engineering principles in a small, readable codebase.
 
 **[Live demo](https://afaguayo.github.io/TaskFlow/)** · TypeScript · Vite · Vitest · no UI framework
 
@@ -8,10 +8,11 @@ A **To Do / In Progress / Done** task board, written to show software engineerin
 
 ## Features
 
-- Three columns: **To Do → In Progress → Done**
+- Four columns: **To Do → In Progress → Review → Done**, one step at a time
 - Add, edit inline, and delete tasks, with **High / Medium / Low** priority
 - Move cards by **drag and drop**, or with the ◀ ▶ buttons (works on phones)
 - Columns sorted by priority, then age; a progress bar shows % done
+- The demo opens on my real backlog: maintenance tasks from an audit of my other repos
 - Saved in your browser (localStorage), with a fallback when storage is blocked
 - Dark mode, keyboard-accessible, responsive
 
@@ -51,7 +52,7 @@ See [docs/adr](docs/adr) for why it's built this way.
 | Principle | Where | How |
 |---|---|---|
 | **Single Responsibility** | `TaskService`, `Task`, `BoardView` | Rules live in `Task`, orchestration in `TaskService`, storage in repositories, drawing in `BoardView`. Each changes for one reason. |
-| **Open/Closed** | `domain/TaskStatus.ts` | Columns and legal moves are a data table. Adding a "Review" column means editing that one file. |
+| **Open/Closed** | `domain/TaskStatus.ts` | Columns and legal moves are a data table. The Review column was added by editing that one file; no service or UI code changed, and the CSS grid sizes itself to the number of columns. |
 | **Liskov Substitution** | `LocalStorageTaskRepository` | Extends the in-memory store and can stand in for any `TaskRepository`; the service can't tell them apart. |
 | **Interface Segregation** | `repository/TaskRepository.ts` | Four methods: exactly what the service uses. |
 | **Dependency Inversion** | `TaskService` constructor, `main.ts` | The service takes a repository, clock and ID generator as interfaces. Only the composition root picks concrete classes. |
@@ -68,7 +69,7 @@ See [docs/adr](docs/adr) for why it's built this way.
 
 ## Testing
 
-43 tests across every layer, ~94% line coverage.
+46 tests across every layer, ~94% line coverage.
 
 ```
 tests/

@@ -14,6 +14,7 @@ describe("TaskService", () => {
     const { service } = makeService();
     const { id } = service.create({ title: "Ship it" });
     expect(service.step(id, 1).status).toBe("in_progress");
+    expect(service.step(id, 1).status).toBe("review");
     expect(service.step(id, 1).status).toBe("done");
     expect(service.step(id, 1).status).toBe("done");
   });
@@ -37,6 +38,7 @@ describe("TaskService", () => {
     const board = service.board();
     expect(board.todo.map((t) => t.title)).toEqual(["high, older", "high, newer", "low"]);
     expect(board.in_progress.map((t) => t.title)).toEqual(["doing"]);
+    expect(board.review).toEqual([]);
     expect(board.done).toEqual([]);
   });
 
@@ -45,11 +47,10 @@ describe("TaskService", () => {
     expect(service.stats().percentDone).toBe(0);
     const a = service.create({ title: "a" });
     service.create({ title: "b" });
-    service.step(a.id, 1);
-    service.step(a.id, 1);
+    for (let i = 0; i < 3; i++) service.step(a.id, 1);
     expect(service.stats()).toEqual({
       total: 2,
-      byStatus: { todo: 1, in_progress: 0, done: 1 },
+      byStatus: { todo: 1, in_progress: 0, review: 0, done: 1 },
       percentDone: 50,
     });
   });

@@ -1,23 +1,25 @@
 /**
  * The workflow a task moves through. Statuses and the allowed moves between
- * them are data, not scattered if-statements: adding a "Review" column means
- * editing this file only (Open/Closed Principle).
+ * them are data, not scattered if-statements. The Review column was added by
+ * editing this file only; no service or UI code changed (Open/Closed Principle).
  */
-export const TASK_STATUSES = ["todo", "in_progress", "done"] as const;
+export const TASK_STATUSES = ["todo", "in_progress", "review", "done"] as const;
 
 export type TaskStatus = (typeof TASK_STATUSES)[number];
 
 export const STATUS_LABELS: Readonly<Record<TaskStatus, string>> = {
   todo: "To Do",
   in_progress: "In Progress",
+  review: "Review",
   done: "Done",
 };
 
 /** A task moves one step at a time, forward or back. */
 const TRANSITIONS: Readonly<Record<TaskStatus, readonly TaskStatus[]>> = {
   todo: ["in_progress"],
-  in_progress: ["todo", "done"],
-  done: ["in_progress"],
+  in_progress: ["todo", "review"],
+  review: ["in_progress", "done"],
+  done: ["review"],
 };
 
 export function isTaskStatus(value: unknown): value is TaskStatus {
