@@ -37,21 +37,9 @@ const BACKLOG: readonly SeedTask[] = [
     status: "todo",
   },
   {
-    title: "Add TaskFlow to the profile README (EN + ES)",
-    description: "Afaguayo/Afaguayo has README.md and README.es.md; update both together.",
-    priority: "medium",
-    status: "todo",
-  },
-  {
-    title: "Archiver + File-Transfer: remove committed __pycache__",
-    description: "Both track .pyc files and have no .gitignore. Add a Python .gitignore and git rm -r --cached the caches.",
-    priority: "medium",
-    status: "todo",
-  },
-  {
-    title: "Add descriptions to 3 repos",
+    title: "Add descriptions to AI-project and hackathon",
     description:
-      "s24-video-player, AI-project and hackathon show no description on the profile.",
+      "Both show no description on the profile or the portfolio grid.",
     priority: "medium",
     status: "todo",
   },
@@ -72,14 +60,14 @@ const BACKLOG: readonly SeedTask[] = [
   {
     title: "Add CI to repos that have none",
     description:
-      "AI-chess (unittest, 40 tests), Shell (POSIX syscalls, so Linux + macOS runners), Archiver (tar round-trip script), brochacho (PSScriptAnalyzer + shellcheck), hackathon (lint + build; Vercel already deploys).",
+      "AI-chess (unittest, 40 tests), brochacho (PSScriptAnalyzer + shellcheck), hackathon (lint + build; Vercel already deploys).",
     priority: "medium",
     status: "todo",
   },
   {
-    title: "Fix typos in repo names",
+    title: "Rename YtDowloaderTool to YtDownloaderTool",
     description:
-      "PA2-Decision-Makiong → Making, YtDowloaderTool → YtDownloaderTool. GitHub redirects old URLs; update local remotes and vault links.",
+      "Typo in the name. GitHub redirects the old URL; update the profile README, local remotes and vault links.",
     priority: "low",
     status: "todo",
   },
@@ -87,12 +75,6 @@ const BACKLOG: readonly SeedTask[] = [
     title: "hackathon: rename to the project's real name",
     description:
       "It's deployed as Reading Companion on Vercel. Give the repo that name, a description, and link the live site in the README header.",
-    priority: "low",
-    status: "todo",
-  },
-  {
-    title: "Minecraft-AI-Agent: write a real README",
-    description: "The README is 63 bytes. Explain what the agent decides, how to run it, and what results it got.",
     priority: "low",
     status: "todo",
   },
@@ -109,6 +91,13 @@ const BACKLOG: readonly SeedTask[] = [
     status: "todo",
   },
   // ---- In Progress -----------------------------------------------------------
+  {
+    title: "Separate class projects from my own work",
+    description:
+      "Portfolio: collapsed Coursework section. Profile README: class repos folded into a 🎓 dropdown, TaskFlow added. Left: archive the old Minecraft agent repo.",
+    priority: "high",
+    status: "review",
+  },
   {
     title: "Unify README format across repos",
     description:
@@ -128,6 +117,12 @@ const BACKLOG: readonly SeedTask[] = [
     title: "Audit all public repos",
     description: "Checked 20 repos for README, license, topics, CI, tests, committed junk and naming. Findings are the cards on this board.",
     priority: "high",
+    status: "done",
+  },
+  {
+    title: "Add TaskFlow to the profile README (EN + ES)",
+    description: "Added to the Quest Log in README.md and README.es.md.",
+    priority: "medium",
     status: "done",
   },
   {

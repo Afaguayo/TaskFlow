@@ -12,9 +12,9 @@ import { BoardView } from "./ui/BoardView";
  * wires them together. Everything else depends on interfaces.
  */
 
-// v2: the Review column and the repo backlog seed. A new key gives every
-// visitor the new demo board instead of a stale one.
-const STORAGE_KEY = "taskflow.board.v2";
+// Bumped whenever the demo seed changes, so every visitor gets the current
+// board instead of a stale copy. v3: class projects removed from the backlog.
+const STORAGE_KEY = "taskflow.board.v3";
 
 function createRepository(): { repository: TaskRepository; isFirstVisit: boolean } {
   try {
