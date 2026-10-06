@@ -49,9 +49,9 @@ const BACKLOG: readonly SeedTask[] = [
     status: "todo",
   },
   {
-    title: "Add descriptions to 4 repos",
+    title: "Add descriptions to 3 repos",
     description:
-      "s24-video-player, AI-project, TICKETMINER and hackathon show no description on the profile.",
+      "s24-video-player, AI-project and hackathon show no description on the profile.",
     priority: "medium",
     status: "todo",
   },
@@ -72,7 +72,7 @@ const BACKLOG: readonly SeedTask[] = [
   {
     title: "Add CI to repos that have none",
     description:
-      "AI-chess (unittest, 40 tests), Shell (POSIX syscalls, so Linux + macOS runners), Archiver (tar round-trip script), brochacho (PSScriptAnalyzer + shellcheck), hackathon (lint + build; Vercel already deploys). TICKETMINER needs Maven or Gradle first.",
+      "AI-chess (unittest, 40 tests), Shell (POSIX syscalls, so Linux + macOS runners), Archiver (tar round-trip script), brochacho (PSScriptAnalyzer + shellcheck), hackathon (lint + build; Vercel already deploys).",
     priority: "medium",
     status: "todo",
   },
@@ -87,12 +87,6 @@ const BACKLOG: readonly SeedTask[] = [
     title: "hackathon: rename to the project's real name",
     description:
       "It's deployed as Reading Companion on Vercel. Give the repo that name, a description, and link the live site in the README header.",
-    priority: "low",
-    status: "todo",
-  },
-  {
-    title: "TICKETMINER: add .gitignore, drop .DS_Store",
-    description: "javadoc/.DS_Store is tracked and there's no .gitignore. Also add a description.",
     priority: "low",
     status: "todo",
   },
